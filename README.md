@@ -22,20 +22,47 @@ The system utilizes five specialized agents working in a high-performance parall
 - **Visualization**: Recharts (Radar/Spider charts)
 - **Document Engine**: jsPDF
 
-## 🚀 Deployment to GitHub Pages
+## 🚀 Deployment
 
-### 1. Configure Secrets
+### Option 1: Deploy to Vercel (Recommended)
+
+#### Quick Deploy
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+3. Click **"New Project"** and import your repository
+4. Vercel will auto-detect Vite settings
+5. Add environment variable:
+   - **Name**: `API_KEY`
+   - **Value**: Your Google AI Studio API Key (get it from [aistudio.google.com/apikey](https://aistudio.google.com/apikey))
+6. Click **"Deploy"**
+7. Your app will be live at `https://your-project.vercel.app`
+
+#### Manual Setup
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Add environment variable
+vercel env add API_KEY
+```
+
+### Option 2: Deploy to GitHub Pages
+
+#### 1. Configure Secrets
 1. Go to your GitHub Repository **Settings**.
 2. Navigate to **Secrets and variables** -> **Actions**.
 3. Create a **New repository secret**.
 4. Name: `API_KEY`
 5. Value: Your Google AI Studio API Key.
 
-### 2. Enable GitHub Actions Deployment
+#### 2. Enable GitHub Actions Deployment
 1. Go to **Settings** -> **Pages**.
 2. Under **Build and deployment** -> **Source**, select **GitHub Actions**.
 
-### 3. Push to Main
+#### 3. Push to Main
 Push your code to the `main` branch. The included workflow in `.github/workflows/deploy.yml` will automatically build and deploy your site to `https://<your-username>.github.io/<repo-name>/`.
 
 ## ⚖️ Ethical AI & Governance
